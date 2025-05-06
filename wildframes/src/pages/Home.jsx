@@ -7,12 +7,13 @@ const Home = () => {
     <Box>
       <ImageCarousel />
       <Box sx={{ padding: "2rem" }}>
-        <Typography variant='h4' gutterBottom>
+        {/* <Typography variant='h4' gutterBottom>
           Welcome!
-        </Typography>
+        </Typography> */}
         <Typography variant="body1">
-          I'm an electronics engineer turned passionate herper, documenting reptiles and amphibians across India.
-          This site showcases my photography, trip reports, and workshops, built entirely using my frontend development skills.
+          Shashank G Bhat is an engineer by education but naturalist by passion, who documents reptiles and amphibians
+          across India. This website showcases his photography, trip reports, and workshops, and has been entirely 
+          designed and developed by him using his frontend development skills.
         </Typography>
       </Box>
     </Box>

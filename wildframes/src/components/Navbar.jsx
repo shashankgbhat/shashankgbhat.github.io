@@ -12,7 +12,7 @@ const navItems = [
 
 const Navbar = () => {
   return (
-    <AppBar position="static" color="default" elevation={1}>
+    <AppBar position="sticky" color="default" elevation={1}>
       <Toolbar>
         <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 'bold' }}>
           WildFrames
