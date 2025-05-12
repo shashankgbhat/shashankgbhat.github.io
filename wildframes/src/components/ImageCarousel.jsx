@@ -1,34 +1,36 @@
 import React, { useState, useEffect } from "react";
 import { Box } from "@mui/material";
-
-const images = [
-  "/images/img1.jpg",
-  "/images/img3.jpg",
-  "/images/img2.jpg",
-  "/images/img4.jpg",
-  "/images/img5.jpg",
-];
+import imagesData from "../data/gallery.json";
+import Carousel from "react-material-ui-carousel";
 
 const ImageCarousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [carouselImages, setCarouselImages] = useState([]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
+      const filtered = imagesData.filter((img) => img.categories.includes("carousel"));
+      setCarouselImages(filtered);
+    }, []);
+
+    console.log(carouselImages);
 
   return (
-    <Box
-      sx={{
-        height: "70vh",
-        backgroundImage: `url(${images[currentIndex]})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        transition: "background-image 1s ease-in-out",
-      }}
-    />
+    <Box sx={{ width: '100%', height: '70vh', overflow: 'hidden' }}>
+      <Carousel indicators={false} interval={5000} navButtonsAlwaysVisible>
+        {carouselImages.map((image) => (
+          <Box
+            key={image.id}
+            component="img"
+            src={image.url}
+            alt={image.title}
+            sx={{
+              width: '100%',
+              height: '70vh',
+              objectFit: 'cover',
+            }}
+          />
+        ))}
+      </Carousel>
+    </Box>
   );
 };
 
