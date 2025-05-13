@@ -3,35 +3,35 @@
     "id": "img1",
     "title": "Bamboo Pit Viper",
     "url": "https://raw.githubusercontent.com/shashankgbhat/wildlife-photography/refs/heads/main/images/img1.JPG",
-    "categories": ["carousel", "bangalore"],
+    "categories": ["all", "carousel", "bangalore"],
     "note": "Bamboo Pit Viper resting on a cactus."
   },
   {
     "id": "img2",
     "title": "Common Krait",
-    "url": "https://raw.githubusercontent.com/shashankgbhat/wildlife-photography/refs/heads/main/images/img3.JPG",
-    "categories": ["bangalore"],
+    "url": "https://raw.githubusercontent.com/shashankgbhat/wildlife-photography/refs/heads/main/images/img2.JPG",
+    "categories": ["all", "carousel", "bangalore"],
     "note": "Juvenile Common Krait trying to hide its head."
   },
   {
     "id": "img3",
     "title": "King Cobra",
-    "url": "https://raw.githubusercontent.com/shashankgbhat/wildlife-photography/refs/heads/main/images/img3.JPG",
-    "categories": ["western-ghats"],
+    "url": "https://raw.githubusercontent.com/shashankgbhat/wildlife-photography/refs/heads/main/images/img3.jpg",
+    "categories": ["all", "carousel", "western-ghats"],
     "note": "Western Ghat King Cobra in its natural habitat."
   },
   {
     "id": "img4",
     "title": "Common Cat Snake",
     "url": "https://raw.githubusercontent.com/shashankgbhat/wildlife-photography/refs/heads/main/images/img4.JPG",
-    "categories": ["carousel", "bangalore"],
+    "categories": ["all", "carousel", "bangalore"],
     "note": "Juvenile Common Cat Snake gliding through shrubs."
   },
   {
     "id": "img5",
     "title": "Farnsworth's Vine Snake",
     "url": "https://raw.githubusercontent.com/shashankgbhat/wildlife-photography/refs/heads/main/images/img5.JPG",
-    "categories": ["carousel", "western-ghats"],
-    "note": "Farnsworth's Vine Snake in deffense pose."
+    "categories": ["all", "carousel", "western-ghats"],
+    "note": "Farnsworth's Vine Snake from Agumbe displaying its defence pose."
   }
 ]
