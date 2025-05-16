@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Button, Grid, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  Grid,
+  Typography,
+  Dialog,
+  DialogContent,
+  IconButton
+} from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import imagesData from '../data/gallery.json';
 
 const categories = [
@@ -13,6 +22,7 @@ const categories = [
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [filteredImages, setFilteredImages] = useState([]);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     if (activeCategory === 'All') {
@@ -25,8 +35,17 @@ const Gallery = () => {
     }
   }, [activeCategory]);
 
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+  };
+
+  const handleClose = () => {
+    setSelectedImage(null);
+  };
+
   return (
     <Box sx={{ padding: 2 }}>
+
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 3 }}>
         {categories.map((category) => (
           <Button
@@ -47,12 +66,14 @@ const Gallery = () => {
               component="img"
               src={image.url}
               alt={image.title}
+              onClick={() => handleImageClick(image)}
               sx={{
                 width: '100%',
                 height: '250px',
                 objectFit: 'cover',
                 borderRadius: 2,
                 boxShadow: 1,
+                cursor: 'pointer',
                 transition: 'transform 0.3s',
                 '&:hover': {
                   transform: 'scale(1.03)',
@@ -62,6 +83,53 @@ const Gallery = () => {
           </Grid>
         ))}
       </Grid>
+
+      <Dialog
+        open={!!selectedImage}
+        onClose={handleClose}
+        fullScreen
+        PaperProps={{
+          sx: {
+            backgroundColor: '#000',
+            color: '#fff',
+          },
+        }}
+      >
+        <DialogContent sx={{ position: 'relative', textAlign: 'center', p: 0 }}>
+          <IconButton
+            onClick={handleClose}
+            sx={{
+              position: 'absolute',
+              top: 16,
+              right: 16,
+              color: '#fff',
+              zIndex: 1000,
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+          {selectedImage && (
+            <>
+              <Box
+                component="img"
+                src={selectedImage.url}
+                alt={selectedImage.title}
+                sx={{
+                  maxWidth: '100%',
+                  maxHeight: '70vh',
+                  objectFit: 'contain',
+                  mt: 8,
+                }}
+              />
+              <Box sx={{ mt: 2, px: 4 }}>
+                <Typography variant="body1" color="white">
+                  {selectedImage.note}
+                </Typography>
+              </Box>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </Box>
   );
 };
